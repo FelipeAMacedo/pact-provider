@@ -7,7 +7,7 @@
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>2.2.1.RELEASE</version>
-		<relativePath /> <!-- lookup parent from repository -->
+		<relativePath />
 	</parent>
 	<groupId>br.com.felipe</groupId>
 	<artifactId>pact-provider</artifactId>
@@ -62,9 +62,20 @@
 				<artifactId>pact-jvm-provider-maven</artifactId>
 				<version>4.0.0</version>
 				<configuration>
-					<pactDirectory>pacts</pactDirectory>
-					<pactBrokerUrl>http://localhost:9092/</pactBrokerUrl>
-					<projectVersion>1.0.100</projectVersion> <!-- Defaults to ${project.version} -->
+					<serviceProviders>
+						<serviceProvider>
+							<name>api_provider</name>
+							<pactBrokerUrl>http://localhost:9292/</pactBrokerUrl>
+							<!-- <consumers>
+								<consumer>
+									<name>test_consumer</name>
+									<pactFile>src/main/resources/pacts/test_consumer-api_provider.json</pactFile>
+								</consumer> 
+							</consumers> -->
+						</serviceProvider>
+					</serviceProviders> 
+					<!-- <pactDirectory>pacts</pactDirectory> -->
+					<projectVersion>1.0.100</projectVersion>
 					<trimSnapshot>true</trimSnapshot>
 				</configuration>
 			</plugin>

@@ -62,7 +62,6 @@ public class ProviderAPI {
 
 	@DeleteMapping("/{value}")
 	public ResponseEntity<String> delete(@PathVariable String value) {
-		String result = "delete from provider";
-		return ResponseEntity.ok(result);
+		return ResponseEntity.ok().build();
 	}
 }
